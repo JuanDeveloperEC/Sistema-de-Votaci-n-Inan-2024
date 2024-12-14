@@ -5,7 +5,8 @@ idna==3.10
 mysql-connector-python==9.1.0
 pydantic==2.10.3
 pydantic_core==2.27.1
-
+jinja2
 SQLAlchemy==2.0.36
 starlette==0.41.3
 typing_extensions==4.12.2
+uvicorn

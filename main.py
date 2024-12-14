@@ -1,23 +1,24 @@
-from fastapi import FastAPI,Depends, Request
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 #from Database.mySql import getbd , SessionLocal
 
+
 import jinja2
 
-print("Jinja2 está disponible:", jinja2._version_)
+print("Jinja2 está disponible:", jinja2.__version__)
 
 app = FastAPI() 
 
-app.mount("/static",StaticFiles(directory="static"),name="static")
-templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="template")
 
 
-@app.get("/",response_class = HTMLResponse)
-async def home (request:Request):
+@app.get("/", response_class= HTMLResponse)
+async def home(request:Request):
     return templates.TemplateResponse("home.html", {
-        "request":request
+        "request": request
     })
 
 #@app.get("/BuscarUsuarios")
