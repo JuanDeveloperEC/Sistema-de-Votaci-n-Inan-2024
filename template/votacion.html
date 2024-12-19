@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Votación</title>
+    <link rel="stylesheet" href="/static/votacion.css"> <!-- Archivo CSS externo -->
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>Votación INAN 2024 - 2025</h1>
+        <p>Seleccione su opción de votación</p>
+
+        <!-- Formulario -->
+        <form id="votacionForm">
+            <div class="candidates-container">
+                <!-- Candidato 1 -->
+                <div class="candidate">
+                    <label>Lista A</label>
+                    <img src="../static/imagenes/presidentalista1.png" alt="Presidente 1">
+                    <h3>Presidenta </h3>
+                    <p>María Isabel Quintanilla Hurtado</p>
+                    <img src="../static/imagenes/vicepresidentelista1.png" alt="Vicepresidente 1">
+                    <h3>Vicepresidente </h3>
+                    <p>Edwin Fabricio Otavalo Córdova</p>
+                    <div class="radio-group">
+                        <input type="radio" id="voto1" name="voto" value="1">
+                        <label for="voto1"></label>
+                    </div>
+                </div>
+
+                <!-- Candidato 2 -->
+                <div class="candidate">
+                    <label>Lista B</label>
+                    <img src="../static/imagenes/presidentelista2.png" alt="Presidente 2">
+                    <h3>Presidente </h3>
+                    <p>Ronny Marcelo Largo Chacha</p>
+                    <img src="../static/imagenes/vicepresidentalista2.png" alt="Vicepresidente 2">
+                    <h3>Vicepresidenta </h3>
+                    <p>Ana Michelle Fernández Márquez</p>
+                    <div class="radio-group">
+                        <input type="radio" id="voto2" name="voto" value="2">
+                        <label for="voto2"></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opciones adicionales -->
+            <div class="radio-group">
+                <input type="radio" id="voto_blanco" name="voto" value="3">
+                <label for="voto_blanco">Voto en Blanco</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="voto_nulo" name="voto" value="4">
+                <label for="voto_nulo">Voto Nulo</label>
+            </div>
+
+            <!-- Botón de Enviar -->
+            <button class="submit-button" type="submit">Votar</button>
+        </form>
+    </div>
+    
+<!-- Modal para mostrar el mensaje -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span id="closeBtn" class="close">&times;</span>
+        <p id="modalMessage"></p>
+        <!-- Botón de Aceptar -->
+        <button id="acceptBtn" class="accept-btn">Aceptar</button>
+    </div>
+</div>
+
+
+
+
+    <script src="/static/votacion.js"></script> 
+</body>
+</html>
+
+
+

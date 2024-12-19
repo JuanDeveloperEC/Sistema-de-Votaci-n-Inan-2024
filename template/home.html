@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Elecciones 2024</title>
+  <script src="/static/script.js"></script>
+  <link rel="stylesheet" href="/static/home.css">
 </head>
 <body>
-    <b> PRUEBA</b>
+  <div id="logoContainer">
+    <img src="../static/imagenes/logoinan.png" alt="Logo" id="logo">
+  </div>
+  <h1>Elecciones Inan 2024</h1>
+  <form>
+    <label for="cedula">Ingrese su cédula:</label>
+    <input type="text" id="cedula" placeholder="Ej: 0102030405">
+    <button type="button" onclick="buscarusuarios()">Validar</button>
+  </form>
+  <div id="userInfo" class="highlight"></div>
+  <button id="continuarButton" type="button" style="display: none;" onclick="redirigir()">Continuar</button>
 </body>
 </html>
