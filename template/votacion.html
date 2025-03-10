@@ -4,77 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Votación</title>
-    <link rel="stylesheet" href="/static/votacion.css"> <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="/static/votacion.css">
 </head>
 <body>
-
     <div class="main-container">
         <h1>Votación INAN 2024 - 2025</h1>
         <p>Seleccione su opción de votación</p>
 
-        <!-- Formulario -->
         <form id="votacionForm">
             <div class="candidates-container">
-                <!-- Candidato 1 -->
+                <!-- LISTA A -->
                 <div class="candidate">
-                    <label>Lista A</label>
-                    <img src="../static/imagenes/presidentalista1.png" alt="Presidente 1">
-                    <h3>Presidenta </h3>
-                    <p>María Isabel Quintanilla Hurtado</p>
-                    <img src="../static/imagenes/vicepresidentelista1.png" alt="Vicepresidente 1">
-                    <h3>Vicepresidente </h3>
-                    <p>Edwin Fabricio Otavalo Córdova</p>
+                    <label class="list-label">Lista A</label>
+                    
+                    <!-- Grupo Presidente y Vicepresidente Lista A -->
+                    <div class="candidate-card" data-role="presidente">
+                        <img src="../static/imagenes/presidentalista1.png" alt="Presidente 1">
+                        <h3>Presidenta</h3>
+                        <p>María Isabel Quintanilla Hurtado</p>
+                    </div>
+                    
+                    <div class="candidate-card" data-role="vicepresidente">
+                        <img src="../static/imagenes/vicepresidentelista1.png" alt="Vicepresidente 1">
+                        <h3>Vicepresidente</h3>
+                        <p>Edwin Fabricio Otavalo Córdova</p>
+                    </div>
+                    
+                    <!-- Otros cargos Lista A -->
+                    <div class="candidate-card">
+                        <img src="../static/imagenes/candidatalista1.png" alt="Tesorera 1">
+                        <h3>Tesorera</h3>
+                        <p>Edelmira Elizabeth Chávez Chavéz</p>
+                    </div>
+                    
+                    <div class="candidate-card">
+                        <img src="../static/imagenes/canditatalista1.png" alt="Secretaria 1">
+                        <h3>Secretaria</h3>
+                        <p>Mariela Isabel Sanmartín Amay</p>
+                    </div>
+                    
+                    <div class="candidate-card">
+                        <img src="../static/imagenes/vocalista1.png" alt="Vocal 1">
+                        <h3>Vocal</h3>
+                        <p>Jhonny Jefferson Chávez Cabrera</p>
+                    </div>
+                    
                     <div class="radio-group">
                         <input type="radio" id="voto1" name="voto" value="1">
                         <label for="voto1"></label>
                     </div>
                 </div>
-
-                <!-- Candidato 2 -->
+            
+                <!-- LISTA B -->
                 <div class="candidate">
-                    <label>Lista B</label>
-                    <img src="../static/imagenes/presidentelista2.png" alt="Presidente 2">
-                    <h3>Presidente </h3>
-                    <p>Ronny Marcelo Largo Chacha</p>
-                    <img src="../static/imagenes/vicepresidentalista2.png" alt="Vicepresidente 2">
-                    <h3>Vicepresidenta </h3>
-                    <p>Ana Michelle Fernández Márquez</p>
+                    <label class="list-label">Lista B</label>
+                    
+                    <!-- Grupo Presidente y Vicepresidente Lista B -->
+                    <div class="candidate-card" data-role="presidente">
+                        <img src="../static/imagenes/presidentelista2.png" alt="Presidente 2">
+                        <h3>Presidente</h3>
+                        <p>Ronny Marcelo Largo Chacha</p>
+                    </div>
+                    
+                    <div class="candidate-card" data-role="vicepresidente">
+                        <img src="../static/imagenes/vicepresidentaalista2.png" alt="Vicepresidente 2">
+                        <h3>Vicepresidenta</h3>
+                        <p>Ana Michelle Fernández Márquez</p>
+                    </div>
+                    
+                    <!-- Otros cargos Lista B -->
+                    <div class="candidate-card">
+                        <img src="../static/imagenes/tesoretalista2.png" alt="Tesorera 2">
+                        <h3>Tesorera</h3>
+                        <p>Yanela Paulina Peña Pizarro</p>
+                    </div>
+                    
+                    <div class="candidate-card">
+                        <img src="../static/imagenes/secretarialista2.png" alt="Secretaria 2">
+                        <h3>Secretaria</h3>
+                        <p>Karla Melissa Criollo Bautista</p>
+                    </div>
+                    
+                    <div class="candidate-card">
+                        <img src="../static/imagenes/vocalista2.png" alt="Vocal 2">
+                        <h3>Vocal</h3>
+                        <p>Bryan Alexander Castro Japa</p>
+                    </div>
+            
                     <div class="radio-group">
                         <input type="radio" id="voto2" name="voto" value="2">
                         <label for="voto2"></label>
                     </div>
                 </div>
             </div>
+            
 
             <!-- Opciones adicionales -->
-            <div class="radio-group">
-                <input type="radio" id="voto_blanco" name="voto" value="3">
-                <label for="voto_blanco">Voto en Blanco</label>
-            </div>
-            <div class="radio-group">
-                <input type="radio" id="voto_nulo" name="voto" value="4">
-                <label for="voto_nulo">Voto Nulo</label>
-            </div>
+<div class="radio-group">
+    <input type="radio" id="voto_blanco" name="voto" value="3">
+    <label for="voto_blanco">Voto en Blanco</label>
+
+    <input type="radio" id="voto_nulo" name="voto" value="4">
+    <label for="voto_nulo">Voto Nulo</label>
+</div>
+
 
             <!-- Botón de Enviar -->
             <button class="submit-button" type="submit">Votar</button>
         </form>
     </div>
-    
-<!-- Modal para mostrar el mensaje -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span id="closeBtn" class="close">&times;</span>
-        <p id="modalMessage"></p>
-        <!-- Botón de Aceptar -->
-        <button id="acceptBtn" class="accept-btn">Aceptar</button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeBtn" class="close">&times;</span>
+            <p id="modalMessage"></p>
+            <button id="acceptBtn" class="accept-btn">Aceptar</button>
+        </div>
     </div>
-</div>
 
-
-
-
-    <script src="/static/votacion.js"></script> 
+    <script src="/static/votacion.js"></script>
 </body>
 </html>
 

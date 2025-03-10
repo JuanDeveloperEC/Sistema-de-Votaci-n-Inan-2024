@@ -1,0 +1,131 @@
+/* Variables globales */
+:root {
+    --primary-bg: #f8f9fd;
+    --text-color: #2c3e50;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --header-color: #34495e;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título principal - Ahora más grande y llamativo */
+h1 {
+    color: var(--header-color);
+    font-size: 3.5rem;  /* Aumentado de 2.5rem */
+    margin-bottom: 2.5rem;  /* Aumentado de 2rem */
+    text-align: center;
+    font-weight: 700;  /* Aumentado de 600 */
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-bottom: 1.5rem;  /* Aumentado de 1rem */
+    text-transform: uppercase;  /* Añadido para más énfasis */
+    text-shadow: 2px 2px 4px var(--shadow-color);  /* Añadido efecto de sombra */
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;  /* Aumentado de 60px */
+    height: 6px;   /* Aumentado de 4px */
+    background: linear-gradient(90deg, #FF6384, #36A2EB);
+    border-radius: 3px;
+}
+
+/* Contenedor del gráfico */
+canvas {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 
+        0 10px 15px -3px var(--shadow-color),
+        0 4px 6px -2px var(--shadow-color);
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+canvas:hover {
+    transform: translateY(-5px);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;  /* Aumentado proporcionalmente */
+        margin-bottom: 2rem;
+        padding-bottom: 1.2rem;
+    }
+
+    h1::after {
+        width: 90px;  /* Ajustado proporcionalmente */
+        height: 5px;
+    }
+
+    canvas {
+        padding: 1rem;
+    }
+}
+
+/* Animación de carga */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body > * {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #1a1f2e;
+        --text-color: #e2e8f0;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --header-color: #f1f5f9;
+    }
+
+    canvas {
+        background-color: #2d3748;
+    }
+}

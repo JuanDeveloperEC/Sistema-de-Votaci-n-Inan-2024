@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal del Jefe de Departamento - TalentHire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 40px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        form input, form select, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .solicitudes {
+            background-color: #e9f7f9;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-top: 10px;
+        }
+
+        .candidatos {
+            background-color: #f9f1e9;
+            padding: 15px;
+            border-left: 5px solid #ffa500;
+            margin-top: 10px;
+        }
+
+        .boton-revisar {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .boton-revisar:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="TalentHire Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#crear-solicitud">Nueva Solicitud</a></li>
+                <li><a href="#estado-solicitudes">Estado de Solicitudes</a></li>
+                <li><a href="#candidatos">Candidatos Sugeridos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección para crear nueva solicitud -->
+        <section id="crear-solicitud">
+            <h2>Crear Nueva Solicitud de Personal</h2>
+            <p>Complete la información para solicitar un nuevo empleado.</p>
+            <form action="/submit-request" method="POST">
+                <label for="cargo">Cargo requerido:</label>
+                <input type="text" id="cargo" name="cargo" required>
+
+                <label for="departamento">Departamento:</label>
+                <input type="text" id="departamento" name="departamento" required>
+
+                <label for="requisitos">Requisitos y habilidades:</label>
+                <textarea id="requisitos" name="requisitos" rows="4" required></textarea>
+
+                <label for="prioridad">Prioridad:</label>
+                <select id="prioridad" name="prioridad">
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </section>
+
+        <!-- Estado de solicitudes enviadas -->
+        <section id="estado-solicitudes">
+            <h2>Estado de Solicitudes</h2>
+            <div class="solicitudes">
+                <p><strong>Puesto:</strong> Analista de Datos</p>
+                <p><strong>Estado:</strong> En revisión</p>
+                <p><strong>Fecha de solicitud:</strong> 20 de enero de 2025</p>
+                <p>Se espera recibir candidatos en los próximos días.</p>
+            </div>
+
+            <div class="solicitudes">
+                <p><strong>Puesto:</strong> Desarrollador Frontend</p>
+                <p><strong>Estado:</strong> Cerrado - Candidato seleccionado</p>
+                <p><strong>Fecha de solicitud:</strong> 10 de enero de 2025</p>
+                <p>El candidato ha sido contratado.</p>
+            </div>
+        </section>
+
+        <!-- Lista de candidatos sugeridos -->
+        <section id="candidatos">
+            <h2>Candidatos Sugeridos</h2>
+            <div class="candidatos">
+                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Perfil:</strong> Analista de Datos con 5 años de experiencia</p>
+                <a href="#" class="boton-revisar">Revisar CV</a>
+            </div>
+
+            <div class="candidatos">
+                <p><strong>Nombre:</strong> María Gómez</p>
+                <p><strong>Perfil:</strong> Desarrolladora Frontend con experiencia en React</p>
+                <a href="#" class="boton-revisar">Revisar CV</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TalentHire. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+
+

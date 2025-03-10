@@ -30,12 +30,14 @@ class Usuarios(Base):
     carrera  = Column(String (50))
     ciclo  = Column(String (50))
     estado = Column(Boolean)
+    
 
 class Votaciones(Base):
-   __tablename__ = "votaciones"
-   idvotaciones = Column (Integer, primary_key= True,index=True)
+   __tablename__ = "roles"
+   idroles  = Column (Integer, primary_key= True,index=True)
    voto = Column (Integer)
-   
+   nombre_rol = Column(String(50))
+   descripcion_rol = Column(String(50))
 
 
 

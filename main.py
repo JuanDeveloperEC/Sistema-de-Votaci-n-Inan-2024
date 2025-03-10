@@ -5,6 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 #from Database.mySql import Session
 from pydantic import BaseModel
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 from Database.mySql import Votaciones, getbd,Usuarios
 import jinja2
@@ -62,6 +63,59 @@ async def registrar_voto(voto: Voto, db: Session = Depends(getbd)):
     
     return {"mensaje": "Voto registrado con éxito", "id_voto": nuevo_voto.idvotaciones}
     
+
+
+"""@app.get("/RecuentoVotos")
+def recuento_votos(db: Session = Depends(getbd)):
+    # Consulta para agrupar y contar los votos
+    resultados = db.query(
+        Votaciones.voto,
+        func.count(Votaciones.voto).label("cantidad")
+    ).group_by(Votaciones.voto).all()
+    
+    # Mapear los resultados para identificarlos de forma legible
+    categorias = {
+        1: "Lista 1",
+        2: "Lista 2",
+        3: "Voto en Blanco",
+        4: "Voto Nulo"
+    }
+    
+    recuento = {categorias.get(voto, "Desconocido"): cantidad for voto, cantidad in resultados}
+    return {"recuento": recuento}"""
+
+
+@app.get("/GraficoVotos", response_class=HTMLResponse)
+async def grafico_votos(request: Request, db: Session = Depends(getbd)):
+    # Obtener los datos de recuento
+    resultados = db.query(
+        Votaciones.voto,
+        func.count(Votaciones.voto).label("cantidad")
+    ).group_by(Votaciones.voto).all()
+
+    
+    categorias = {
+        1: "Lista 1",
+        2: "Lista 2",
+        3: "Votos en Blanco",
+        4: "Votos en Nulo"
+    }
+
+    recuento = {categorias.get(voto, "Desconocido"): cantidad for voto, cantidad in resultados}
+    
+    # Renderizar la plantilla con los datos
+    return templates.TemplateResponse("grafico_votos.html", {
+        "request": request,
+        "labels": list(recuento.keys()),
+        "data": list(recuento.values())
+    })
+
+
+
+
+
+
+
 
   
 
